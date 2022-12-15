@@ -2,13 +2,13 @@ package Basics;
 
 public class pattern {
     public static void main(String[] args){
-       // pattern1(5);
+       pattern1(5);
         //*
         //* *
         //* * *
         //* * * *
         //* * * * *
-//        pattern2(5);
+     // pattern2(5);
         //* * * * *
         //* * * * *
         //* * * * *

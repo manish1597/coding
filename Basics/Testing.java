@@ -1,5 +1,6 @@
 package Basics;
-public class Main {
+
+public class Testing {
     public static void main(String[] args) {
         System.out.println("Is 32 prime : "+isPrime(32));
         System.out.println("Is 41 prime : "+isPrime(41));
@@ -13,6 +14,4 @@ public class Main {
         }
         return true;
     }
-
-
 }
