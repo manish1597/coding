@@ -7,6 +7,7 @@ public class Evenoddseperation {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of array");
         int n = sc.nextInt();
+
         int numbers[] = new int[n];
         System.out.println("Enter each element of array");
 
@@ -17,6 +18,7 @@ public class Evenoddseperation {
         System.out.println("New Array is ");
         for(int i=0;i<latest.length;i++){
             System.out.print(latest[i]+" ");
+
 
         }
 
