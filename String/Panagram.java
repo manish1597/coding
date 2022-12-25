@@ -9,7 +9,7 @@ public class Panagram {
         }
         String s=str.toLowerCase();
         for (char c='a';c<='z';c++){
-            if(s.indexOf(c)<0){
+            if(s.indexOf(c)<0){//Here we use  index function because if character not present in string it return negative value
                 return false;
             }
         }
@@ -43,8 +43,8 @@ public class Panagram {
     public static void main(String args[])
     {
         String s = "The quick brown fox jumps oerv the lazy dog";
-//        System.out.println(panagram(s));
-        System.out.println(ispanagram(s));
+        System.out.println(panagram(s));
+//        System.out.println(ispanagram(s));
 
 
     }

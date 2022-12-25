@@ -8,7 +8,7 @@ public class ReversetheArray {
 
 //        String rev="";
 //        for(int i=s.length()-1;i>=0;i--){
-//            rev=rev+s.charAt(i);
+//            rev=rev+s.charAt(i);//add one element one by one thats why we use +
 //        }
 //        return rev;
         StringBuffer n= new StringBuffer(s);
