@@ -1,4 +1,4 @@
-package DSA.Array;
+package Array;
 
 public class LargestElementInArray {
     public  int largest(int arr[])
