@@ -43,8 +43,8 @@ public class Panagram {
     public static void main(String args[])
     {
         String s = "The quick brown fox jumps oerv the lazy dog";
-        System.out.println(panagram(s));
-//        System.out.println(ispanagram(s));
+     //   System.out.println(panagram(s));
+        System.out.println(ispanagram(s));
 
 
     }

@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.Arrays;
+
 public class PrintSubarray {
     static void Printsub(int n[]){
         int total_pairs=0;
@@ -23,6 +25,7 @@ public class PrintSubarray {
     public static void main(String[] args) {
         int n[]={2,4,6,8,10};
         System.out.println("Pairs....");
-        Printsub(n);
+       Printsub(n);
+
     }
 }
