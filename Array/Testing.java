@@ -3,25 +3,38 @@ package Array;
 import java.util.Scanner;
 
 public class Testing {
-    public static void reverse(int arr[]){
-        int start =0;
-        int end = arr.length-1;
-        while(start<end){
-            int temp=arr[start];
-            arr[start]=arr[end];
-            arr[end]=temp;
-            start++;
-            end--;
+
+    public  static void printarray(int matrix[][]){
+        for(int i=0;i< matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                System.out.print(matrix[i][j]+" ");
+            }
+            System.out.println();
         }
     }
 
+   public static void Transpose(int matrix[][]){
+        int latest[][]= new int[matrix[0].length][matrix.length];
+        for (int i=0;i< matrix.length;i++){
+            for (int j=0;j<matrix[0].length;j++){
+                latest[j][i]=matrix[i][j];
+            }
+        }
+        printarray(latest);
+
+   }
 
     public static void main(String[] args) {
-        int arr[]={5,10,15,20,30,35,46,79};
-        reverse(arr);
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }
+        int matrix[][]={
+                {4,7,8},
+                {8,8,7}};
 
+        printarray(matrix);
+        System.out.println("The transpose of matrix is ");
+        Transpose(matrix);
     }
+
+
+
 }
+

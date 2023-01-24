@@ -10,7 +10,7 @@ public class TwoDArray {
         int n= matrix.length;
         int m=matrix[0].length;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the 2D array elements fill from row int colunmn which is \n"+"Row="+n+"column="+m);
+        System.out.println("Enter the 2D array elements fill from row int colunmn which is \n"+"Row="+n+" column="+m);
         //Initialise element in 2D Array
         //Outer loop for row
         for(int i=0;i<n;i++){

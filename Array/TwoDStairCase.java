@@ -14,6 +14,7 @@ public class TwoDStairCase {
     }
     public static boolean StaircaseSearch(int matrix[][],int key){
         //if we start from Top right end i.e 40
+        //we have to set the cell that's why we set row and column
         int k=key;//only for key printing purpose
         int row=0;
         int col=matrix[0].length-1;
