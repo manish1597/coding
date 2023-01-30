@@ -23,7 +23,7 @@ public class Buublesort {
 
     public static void optimizeBubbleSort(int arr[]){
         for(int turn=0;turn< arr.length-1;turn++){
-            boolean isSwap=true;
+            boolean isSwap=false;
             //Array is already sorted
             for(int j=0;j<arr.length-1-turn;j++){
                 if(arr[j+1]<arr[j]){
@@ -31,10 +31,12 @@ public class Buublesort {
                     int temp=arr[j];
                     arr[j]=arr[j+1];
                     arr[j+1]=temp;
-                    isSwap =false;
+                    isSwap =true;
                 }
             }
-            if (isSwap) return;
+            if ( isSwap==false) {
+                break;
+            }
         }
     }
 
@@ -47,10 +49,10 @@ public class Buublesort {
 
     public static void main(String[] args) {
         int arr[]={5,4,7,1,8,3,2};
-        bubbleSort(arr);
-        printarray(arr);
-//        optimizeBubbleSort(arr);
+//        bubbleSort(arr);
 //        printarray(arr);
+        optimizeBubbleSort(arr);
+        printarray(arr);
 
     }
 }
