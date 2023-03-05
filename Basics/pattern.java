@@ -122,7 +122,18 @@ public class pattern {
 //  *    *
 // *    *
 //******
-        pyramid(9);
+//        pyramid(9);
+
+         //RECURSION
+        Rpat1(5,0);
+
+// * * * * *
+//* * * *
+//* * *
+//* *
+//*
+//        Rpat2(4,0);
+
 
 
 
@@ -398,6 +409,37 @@ public class pattern {
             for(int j=0;j<=(2*i)-1;j++) {
                 System.out.print("* ");
             }
+            System.out.println();
+
+        }
+    }
+
+    public static void Rpat1(int r,int c){
+        if (r==0){
+            return;
+        }
+
+        if(c<r){
+            System.out.print("*"+" ");
+            Rpat1(r,c+1);
+        }
+        else {
+            System.out.println();
+            Rpat1(r-1,0);
+        }
+    }
+    public static void Rpat2(int r,int c){
+        if (r==0){
+            return;
+        }
+
+        if(c<r){
+            Rpat2(r,c+1);
+            System.out.print("*"+" ");
+
+        }
+        else {
+            Rpat2(r-1,0);
             System.out.println();
 
         }

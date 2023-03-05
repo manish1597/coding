@@ -20,13 +20,25 @@ public class IncreasindandDecreasingOrder {
         increasing(n-1);
         System.out.print(n+" ");
     }
+    public static void both(int n){
+        //base case
+        if (n==0){
+            return;
+        }
+
+        //recursion
+        System.out.print(n+" ");
+        both(n-1);
+        System.out.print(n+" ");
+    }
 
     public static void main(String[] args) {
         int n=10;
 //        System.out.println("Decreasing order by recursion is ");
 //        decreasing(n);
         System.out.println("\nIncreasing order by recursion is");
-        increasing(n);
+//        increasing(n);
 
+        both(n);
     }
 }
