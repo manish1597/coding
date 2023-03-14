@@ -413,7 +413,6 @@ public class pattern {
 
         }
     }
-
     public static void Rpat1(int r,int c){
         if (r==0){
             return;
@@ -444,9 +443,4 @@ public class pattern {
 
         }
     }
-
-
-
-
-
 }
