@@ -272,6 +272,162 @@ public class LinkedList {
 
     }
 
+    public  boolean iscyclic(){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;//+1
+            fast=fast.next.next;//+2
+            if (fast==slow){
+                return true;//cycle exists
+            }
+        }
+        return false;
+    }
+
+    public static void removeCycle(){//static because we want to change as whole
+        //step1 :Detect Cycle
+        Node slow=head;
+        Node fast=head;
+        boolean exist=false;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if (fast==slow){
+                exist=true;//means cycle exists
+                //if it is exists then we don;t want to move further we set slow to head
+                //hence we break the loop
+                break;
+            }
+            if(exist==false){
+                //Cycle not exists
+                return;
+            }
+
+        }
+        //if exists then find meeting point
+
+//        step2:find meeting point
+        //set slow to head
+        slow=head;
+        Node prev=null;
+        while (slow!=fast){
+            //we need node to track the previous node of fast
+            prev=fast;
+            //Now jump both both slow and fast by one
+            slow=slow.next;
+            fast=fast.next;
+
+        }
+
+//        step3:last node next point to null
+        prev.next=null;
+    }
+
+//                            MERGE SORT
+
+    public Node getMid(Node head){
+        Node slow=head;
+        Node fast=head.next;//we want left half last node as middle point
+        while(fast!=null &&fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+            return slow;//as mid
+    }
+
+    public Node merge(Node head1,Node head2){
+        //firt we intialise auxillary Node to point smaller mode
+        Node auxi= new Node (-1);
+        Node temp=auxi;//here temp is pointing to smaller value element
+        //Now compare both left and right
+        while(head1!=null && head2!=null){
+            //compare left and right
+            if(head1.data <= head2.data){
+                temp.next=head1;
+                head1=head1.next;//head next node
+                temp=temp.next;//temo pointing
+            }
+            else {
+                temp.next=head2;
+                head2=head2.next;
+                temp=temp.next;
+            }
+        }
+        //if left side have 4 node and right side have 2 node then left side node is not sorted
+        //hence to deal with this situation we do
+        while(head1!=null){
+            temp.next=head1;
+            head1=head1.next;//head next node
+            temp=temp.next;//temo pointing
+
+        }
+        while (head2!=null){
+            temp.next=head2;
+            head2=head2.next;
+            temp=temp.next;
+        }
+        return auxi.next;//because auxi head have -1 value
+    }
+
+
+    public Node mergeSort(Node head){
+        //Base case when LL is empty or content only one node then it is already sorted
+        if(head==null || head.next==null ){
+            return head;
+        }
+
+        //find mid
+        Node mid=getMid(head);
+        //left and right merge sort
+        Node rightHead=mid.next;
+        mid.next=null;//so that left and right side divided
+        Node newLeft=mergeSort(head);
+        Node newright=mergeSort(rightHead);
+        //Merge
+        return merge(newLeft,newright);
+
+    }
+
+    public void zigZag(){
+        //find middle as a left half last node
+        Node slow=head;
+        Node fast=head.next;
+        while(fast!=null &&fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+
+        }
+        Node mid=slow;
+        //now reverse the second half by 3 variable and 4 steps
+        Node curr=mid.next;
+        mid.next=null;
+        Node prev=null;
+        Node next;
+        while(curr!=null){
+             next=curr.next;
+             curr.next=prev;
+             prev=curr;//previous become current
+            curr=next;
+        }
+        Node left=head;
+        Node right=prev;
+        Node Nextl,NextR;//for tracking
+        //Alternate merging
+         while(left!=null && right!=null){
+             Nextl=left.next;
+             left.next=right;//left next pointing to right
+             NextR=right.next;
+             right.next=Nextl;
+             //Above steps for merging
+             //now update the head how left and right
+             left=Nextl;
+             right=NextR;
+
+         }
+    }
+
+
     public static void main(String[] args) {
         LinkedList ll =new LinkedList();
 //        ll.addFirst(2);
@@ -299,14 +455,62 @@ public class LinkedList {
 //        ll.print();
 
         //PALLINDROME
+
+//        ll.addLast(1);
+//        ll.addLast(2);
+//        ll.addLast(2);
+//        ll.addLast(3);
+//        ll.print();
+//        System.out.println("Is this Pallindrome?\n"+ll.isPalin());
+
+
+        //Check Cyclic or not
+
+//        head =new Node(1);
+//        head.next =new Node(4);
+//        head.next.next =new Node(7);
+//        head.next.next.next =head;
+//        System.out.println("Is the Given Linked list is Cyclic?\n"+iscyclic());
+
+
+        //Remove Cyclic ll
+
+//        head =new Node(1);
+//        Node temp =new Node(2);
+//        head.next =temp;
+//        head.next.next =new Node(3);
+//        head.next.next.next =temp;
+////        ll.print();
+//        System.out.println("Is the Given Linked list is Cyclic?\n"+ll.iscyclic());
+//       ll.removeCycle();
+//
+//        System.out.println("Is the Given Linked list is Cyclic?\n"+ll.iscyclic());
+
+
+        //MERGE SORT
+//        ll.addFirst(1);
+//        ll.addFirst(2);
+//        ll.addFirst(3);
+//        ll.addFirst(4);
+//        ll.addFirst(5);
+//        ll.print();
+//
+//        System.out.println("Merge sort(nlogn)");
+//        ll.head=ll.mergeSort(ll.head);
+//        ll.print();
+
+
+        //ZIGZAG LINK
+
         ll.addLast(1);
         ll.addLast(2);
-        ll.addLast(2);
         ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
         ll.print();
-        System.out.println("Is this Pallindrome?\n"+ll.isPalin());
-
-
+        System.out.println("Zig zag linked list is");
+        ll.zigZag();
+        ll.print();
 
     }
 
