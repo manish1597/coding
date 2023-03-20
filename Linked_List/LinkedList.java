@@ -14,7 +14,7 @@ public class LinkedList {
             this.next = null;//itially it is pointing to null
         }
     }
-        //to track the linked list we make head and tail and it is class specific
+    //to track the linked list we make head and tail and it is class specific
     // because linked list have only one HEAD and Tail
     public static Node head;
     public static Node tail;
@@ -134,7 +134,7 @@ public class LinkedList {
         }
         //Then two operation we have to done for remove the last elemenet
         //first is point prev.next=null and tail = prev;
-       int value = tail.data;
+        int value = tail.data;
         prev.next=null;
         tail=prev;
         size--;
@@ -171,7 +171,7 @@ public class LinkedList {
 
     }
     public int recSeach(int key){
-       return helper(head,key);//it will give index
+        return helper(head,key);//it will give index
 
 
     }
@@ -333,7 +333,7 @@ public class LinkedList {
             slow=slow.next;
             fast=fast.next.next;
         }
-            return slow;//as mid
+        return slow;//as mid
     }
 
     public Node merge(Node head1,Node head2){
@@ -405,26 +405,26 @@ public class LinkedList {
         Node prev=null;
         Node next;
         while(curr!=null){
-             next=curr.next;
-             curr.next=prev;
-             prev=curr;//previous become current
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;//previous become current
             curr=next;
         }
         Node left=head;
         Node right=prev;
         Node Nextl,NextR;//for tracking
         //Alternate merging
-         while(left!=null && right!=null){
-             Nextl=left.next;
-             left.next=right;//left next pointing to right
-             NextR=right.next;
-             right.next=Nextl;
-             //Above steps for merging
-             //now update the head how left and right
-             left=Nextl;
-             right=NextR;
+        while(left!=null && right!=null){
+            Nextl=left.next;
+            left.next=right;//left next pointing to right
+            NextR=right.next;
+            right.next=Nextl;
+            //Above steps for merging
+            //now update the head how left and right
+            left=Nextl;
+            right=NextR;
 
-         }
+        }
     }
 
 
